@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 
 
 class Checkout(Driverutility, Assertutility):
+    # Search product in the platform using keyword
     def search_product(self, driver):
         search_input_data = super().read_data("search", "camera")
         webelement_search = driver.find_element(By.XPATH, Selectors.SEARCHINPUT)
@@ -21,6 +22,7 @@ class Checkout(Driverutility, Assertutility):
         )
         super().take_screenshot(driver)
 
+    # Click on selected product to progress for checkout
     def click_product(self, driver):
         driver.find_element(By.XPATH, Selectors.PRODUCT1).click()
         super().check_element_present(driver, "xpath", Selectors.PRODUCTIMG)
@@ -34,6 +36,7 @@ class Checkout(Driverutility, Assertutility):
         )
         super().take_screenshot(driver)
 
+    # Adding product to cart
     def add_to_cart(self, driver):
         driver.find_element(By.XPATH, Selectors.ADDINGTOCART).click()
         super().check_element_present(driver, "xpath", Selectors.ITEMINCART)

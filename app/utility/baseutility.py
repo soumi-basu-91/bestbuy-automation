@@ -28,7 +28,7 @@ class Baseutility:
         else:
             raise ValueError("None type returned for association " + p_datatype + " -> " + c_datatype)
 
-    # read data from excel sheet
+    # read data from excel sheet using data frame
     def read_data(self, data_type, keyword):
         platformdata_path = self.read_config("data", "platformdata")
         val = None
@@ -62,7 +62,7 @@ class Baseutility:
             self.set_log("info", "Fetching data for data type: %s and keyword: %s" % (data_type, keyword))
             return val.to_dict('records')[0]
 
-    # Set log based on message type
+    # Set log based on message type [console, <timestamp>.log]
     def set_log(self, log_type, msg):
         logging.basicConfig(filemode='w')
 

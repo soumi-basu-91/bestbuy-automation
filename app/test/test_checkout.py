@@ -12,8 +12,11 @@ class Testcheckout(Checkout):
         # Clear site cookies
         super().clear_cookies(driver)
 
+        # search product
         super().search_product(driver)
+        # click item from search result
         super().click_product(driver)
+        # Add to cart
         super().add_to_cart(driver)
 
         driver.quit()
